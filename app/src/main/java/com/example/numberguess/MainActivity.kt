@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
 
     var random: Int = nextInt( 1, 1000)
-
+    var count: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,19 +35,21 @@ class MainActivity : AppCompatActivity() {
         imageButtonCheck.setOnClickListener {
 
             val number: Int = editText.text.toString().toInt()
-            var count: Int = 1
+
 
             if (number < random) {
-                textView.text = " r is greater count:" + count.toString()
+                count += 1
+                textView.text = "R is greater  count:$count"
                 editText.text.clear()
-                count = count + 1
+
 
             } else if (number > random) {
-                textView.text = " r is lower count:" + count.toString()
+                count += 1
+                textView.text = "R is lower     count:$count"
                 editText.text.clear()
-                count = count + 1
+
             } else {
-                textView.text = "Correct!!  count:" + count.toString()
+                textView.text = "Correct!!  count:  $count"
             }
         }
 
@@ -62,6 +64,7 @@ class MainActivity : AppCompatActivity() {
             random = nextInt(1, 10000)
             textView.text = "Find R in range 1 - 1000"
             editText.text.clear()
+            count = 0
 
 
     }
